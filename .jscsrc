@@ -1,4 +1,4 @@
 {
   "esnext"    : true,
-  "preset"    : "google"
+  "preset"    : "airbnb"
 }
