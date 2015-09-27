@@ -4,7 +4,7 @@
   "description": "a node project skeleton that includes babel",
   "author": "David King <davidgwking@gmail.com>",
   "contributors": [],
-  "main": "_INDEX_",
+  "main": "%INDEX%",
   "repository": {
     "type": "git",
     "url": "https://github.com/davidgwking/node-project-skeleton-babel"
