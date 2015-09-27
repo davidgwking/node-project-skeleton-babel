@@ -1,0 +1,27 @@
+{
+  "name": "node-project-skeleton-babel",
+  "version": "0.0.1",
+  "description": "a node project skeleton that includes babel",
+  "author": "David King <davidgwking@gmail.com>",
+  "contributors": [],
+  "main": "_INDEX_",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidgwking/node-project-skeleton-babel"
+  },
+  "bugs": {
+    "url": "https://github.com/davidgwking/node-project-skeleton-babel/issues"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "chai": "^3.2.0",
+    "chokidar-cli": "^1.0.1",
+    "jscs": "^2.1.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.16.1",
+    "sinon-chai": "^2.8.0"
+  },
+  "license": "MIT"
+}
