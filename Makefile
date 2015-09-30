@@ -5,7 +5,8 @@ JSCS := $(DEPS_BIN)/jscs
 MOCHA := $(DEPS_BIN)/mocha
 BABEL := $(DEPS_BIN)/babel
 JSHINT := $(DEPS_BIN)/jshint
-CHOKIDAR := $(DEPS_BIN)/chokidar
+NODEMON := $(DEPS_BIN)/nodemon
+BABEL_NODE := $(DEPS_BIN)/babel-node
 
 TARGET := dist
 SRC = $(shell find src -type f -name '*.js')
@@ -35,17 +36,29 @@ lint:
 	@$(JSHINT) $(SRC)
 	@$(JSHINT) $(TESTS)
 
-test:
+server:
 	@echo -----------------------------------------
-	@echo Testing
+	@echo Running server
 	@echo -----------------------------------------
-	$(MOCHA) $(TESTS)
+	$(BABEL_NODE) --stage 2 -- src/server.js
 
 watch:
 	@echo -----------------------------------------
-	@echo Watching src, test, and node_modules
+	@echo Running server with file watching enabled
 	@echo -----------------------------------------
-	$(CHOKIDAR) 'src/**' 'test/**' 'node_modules/**' --follow-symlinks --initial --silent -c 'make test'
+	$(NODEMON) --exec make server
+
+test:
+	@echo -----------------------------------------
+	@echo Running tests
+	@echo -----------------------------------------
+	$(MOCHA) $(TESTS)
+
+watch-test:
+	@echo -----------------------------------------
+	@echo Running tests with file watching enabled
+	@echo -----------------------------------------
+	$(NODEMON) --exec make test
 
 $(DEPS):
 	@echo -----------------------------------------
@@ -61,4 +74,4 @@ $(TARGET)/%.js: src/%.js
 	@mkdir -p $(@D)
 	@$(BABEL) $< -o $@
 
-.PHONY: default clean deps lint test watch
+.PHONY: default clean lint server watch test watch-test
