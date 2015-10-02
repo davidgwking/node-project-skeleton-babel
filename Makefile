@@ -40,7 +40,7 @@ server:
 	@echo -----------------------------------------
 	@echo Running server
 	@echo -----------------------------------------
-	$(BABEL_NODE) --stage 2 -- src/server.js
+	$(BABEL_NODE) -- src/server.js
 
 watch:
 	@echo -----------------------------------------
